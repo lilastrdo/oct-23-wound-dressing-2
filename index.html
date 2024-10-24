@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wound Dressing Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+        }
+        .answers {
+            margin-left: 20px;
+        }
+        .answers label {
+            display: block;
+            font-size: 16px;
+            color: #555;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .answers input[type="radio"] {
+            margin-right: 10px;
+        }
+        .answers label:hover {
+            background-color: #e9ecef;
+        ul {
+            list-style-type: disc;
+            margin-left: 40px;
+            color: #555;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .intervention-list {
+            margin: 0;
+            padding: 0;
+            color: #555;
+        }
+        .intervention-list li {
+            margin-bottom: 10px;
+        }
+        .intervention-title {
+            font-weight: bold;
+            margin-top: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Wound Dressing Assessment and Dressing Selections</h1>
+    
+    <!-- Question 1 -->
+    <div class="question">
+        <p>What is the amount of the exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate" value="none-minimal-scant" onclick="showNextQuestion('question2')"> None/Minimal/Scant.It is Dry Wound.</label><br>
+            <label><input type="radio" name="exudate" value="moderate-large" onclick="showNextQuestion('question6')"> Moderate/Large. It is Wet Wound. </label>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div id="question2" class="question" style="display: none;">
+        <p>What is the depth of the wound?</p>
+        <div class="answers">
+            <label><input type="radio" name="depth" value="deep" onclick="showNextQuestion('question3')"> Full thickness tissue loss: full dermis damage, subcutaneous fat, bone, tendon or muscle are exposed. It is a Deep wound.</label><br>
+            <label><input type="radio" name="depth" value="shallow" onclick="showNextQuestion('question10')">Superficial tissue loss: only damage the epidermis. Partial-thickness tissue loss: damage of epidermis and partial of dermis. This is Shallow wound.</label>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div id="question3" class="question" style="display: none;">
+        <p>What type of exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate-type" value="serosanguineous-serous" onclick="showNextQuestion('question4')"> Serosanguineous/Serous</label><br>
+            <label><input type="radio" name="exudate-type" value="sanguineous" onclick="showNextQuestion('question4')"> Sanguineous</label><br>
+            <label><input type="radio" name="exudate-type" value="pus-malodorous" onclick="showNextQuestion('question4')"> Pus and malodorous</label>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div id="question4" class="question" style="display: none;">
+        <p>4. What does the wound bed look like?</p>
+        <div class="answers">
+            <label><input type="radio" name="wound-bed" value="pink-red" onclick="showNextQuestion('question5')"> Pink/Red tissue. “Berry-like granular surface”. This is healthy healing.</label><br>
+            <label><input type="radio" name="wound-bed" value="slough-eschar-gangrene" onclick="showNextQuestion('question21')"> Slough/Eschar/Gangrene. This is an infection.</label>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div id="question5" class="question" style="display: none;">
+        <p>This is a healthy healing deep dry wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Nursing driven to consult a wound care nurse for clean wound assessment, dressing recommendations for all HAPI wounds, surgical wounds and bed recommendations.</li>
+            <li>4. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+        </ul>
+        <p>For Deep Dry Wound dressing material to hydrate and maintain moisture:</p>
+        <ul>
+            <li>The goal is to hydrate and maintain moisture.</li>
+            <li>Filler dressing option: NS-moist gauze packing; Vashe-moist gauze packing</li>
+            <li>Cover dressing option: Gauze + transparent/waterproof adhesive dressing: Tegaderm; Polyskin</li>
+        </ul>
+    </div>
+
+    <!-- Question 6 -->
+    <div id="question6" class="question" style="display: none;">
+        <p>2. What is the depth of the wound?</p>
+        <div class="answers">
+            <label><input type="radio" name="depth" value="deep" onclick="showNextQuestion('question7')"> Full thickness tissue loss: full dermis damage, subcutaneous fat, bone, tendon or muscle are exposed. It is a Deep wound.</label><br>
+            <label><input type="radio" name="depth" value="shallow" onclick="showNextQuestion('question13')">Superficial tissue loss: only damage the epidermis. Partial-thickness tissue loss: damage of epidermis and partial of dermis. This is Shallow wound.</label>
+        </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div id="question7" class="question" style="display: none;">
+        <p>What type of exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate-type-dry-shallow" value="serosanguineous-serous" onclick="showNextQuestion('question8')"> Serosanguineous/Serous</label><br>
+            <label><input type="radio" name="exudate-type-dry-shallow" value="sanguineous" onclick="showNextQuestion('question19')"> Sanguineous</label><br>
+            <label><input type="radio" name="exudate-type-dry-shallow" value="pus-malodorous" onclick="showNextQuestion('question22')"> Pus and malodorous. This is an infection</label>
+        </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div id="question8" class="question" style="display: none;">
+        <p>What does the wound bed look like?</p>
+        <div class="answers">
+            <label><input type="radio" name="wound-bed-dry-shallow" value="pink-red" onclick="showNextQuestion('question9')"> Pink/Red tissue.“Berry-like granular surface”. This is healthy healing.</label><br>
+            <label><input type="radio" name="wound-bed-dry-shallow" value="slough-eschar-gangrene" onclick="showNextQuestion('question22')"> Slough/Eschar/Gangrene.This is an infection</label>
+        </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div id="question9" class="question" style="display: none;">
+        <p>This is a healthy healing deep wet wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Nursing driven to consult a wound care nurse for clean wound assessment, dressing recommendations for all HAPI wounds, surgical wounds and bed recommendations.</li>
+            <li>4. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+        </ul>
+        <p>	For Deep Wet Wound dressing material to absorb drainage and need absorptive filter:</p>
+        <ul>
+            <li>Filler dressing option: Hydrofiber: Aquacel rope; Alginate (flat or rope); Aquacel Ag (for infected wound); Plain packing strips (¼,½,1-inch); Iodoform packing strips  (¼,½,1-inch)</li>
+            <li>Rolled Gauze (Woven): Kerlix roll</li>
+            <li>Mesalt (for autolytic debridement)</li>
+        </ul>
+    </div>
+
+    <!-- Question 10 -->
+    <div id="question10" class="question" style="display: none;">
+        <p>What type of exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate-type-wet" value="serosanguineous-serous" onclick="showNextQuestion('question11')"> Serosanguineous/Serous</label><br>
+            <label><input type="radio" name="exudate-type-wet" value="sanguineous" onclick="showNextQuestion('question11')"> Sanguineous</label><br>
+            <label><input type="radio" name="exudate-type-wet" value="pus-malodorous" onclick="showNextQuestion('question11')"> Pus and malodorous.This is an infection.</label>
+        </div>
+    </div>
+
+    <!-- Question 11 -->
+    <div id="question11" class="question" style="display: none;">
+        <p>4. What does the wound bed look like?</p>
+        <div class="answers">
+            <label><input type="radio" name="wound-bed" value="pink-red" onclick="showNextQuestion('question12')"> Pink/Red tissue. “Berry-like granular surface”. This is healthy healing.</label><br>
+            <label><input type="radio" name="wound-bed" value="slough-eschar-gangrene" onclick="showNextQuestion('question23')"> Slough/Eschar/Gangrene. This is an infection.</label>
+        </div>
+    </div>
+    
+    <!-- Question 12 -->
+    <div id="question12" class="question" style="display: none;">
+        <p>This is a healthy healing shallow dry wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Nursing driven to consult a wound care nurse for clean wound assessment, dressing recommendations for all HAPI wounds, surgical wounds and bed recommendations.</li>
+            <li>4. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+        </ul>
+        <p>	For Shallow Dry Wound dressing material to hydrate and maintain moisture:</p>
+        <ul>
+            <li>Hydrogels:Medihoney gel; Woun’dres Collagen; Silver gel (for infected wound); Plurogel; Kerralite cool border</li>
+            <li>Hydrocolloids:Medihoney Hydrocolloids; DuoDERM Extra Thin CGF; ComFeel</li>
+            <li>Non-adherent Impregnated:Curity Oil emulsion gauze; Vaseline gauze; Xeroform gauze; Cutimed Sorbact gel</li>
+            <li>Non-impregnated:Telfa; Mepore (tape border)</li>
+            <li>Secures dressings with Transparent adhesive dressing:Tegaderm; Polyskin</li>
+            <li>Adhesive tape: Medipore; MedFix; Silicon Tape</li>
+            <li>Foam:Mepilex</li>
+        </ul>
+    </div>
+    
+    <!-- Question 13 -->
+    <div id="question13" class="question" style="display: none;">
+        <p>What type of exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate-type-wet" value="serosanguineous-serous" onclick="showNextQuestion('question14')"> Serosanguineous/Serous</label><br>
+            <label><input type="radio" name="exudate-type-wet" value="sanguineous" onclick="showNextQuestion('question17')"> Sanguineous</label><br>
+            <label><input type="radio" name="exudate-type-wet" value="pus-malodorous" onclick="showNextQuestion('question14')"> Pus and malodorous.This is an infection.</label>
+        </div>
+    </div>
+    
+    <!-- Question 14 -->
+    <div id="question14" class="question" style="display: none;">
+        <p>What does the wound bed look like?</p>
+        <div class="answers">
+            <label><input type="radio" name="wound-bed" value="pink-red" onclick="showNextQuestion('question15')"> Pink/Red tissue. “Berry-like granular surface”. This is healthy healing.</label><br>
+            <label><input type="radio" name="wound-bed" value="slough-eschar-gangrene" onclick="showNextQuestion('question16')"> Slough/Eschar/Gangrene. This is an infection.</label>
+        </div>
+    </div>
+    
+    <!-- Question 15 -->
+    <div id="question15" class="question" style="display: none;">
+        <p>This is a healthy healing healing shallow wet wound <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Nursing driven to consult a wound care nurse for clean wound assessment, dressing recommendations for all HAPI wounds, surgical wounds and bed recommendations.</li>
+            <li>4. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+        </ul>
+        <p>	For Shallow Wet Wound dressing material to absorb drainage and need absorptive filter:</p>
+        <ul>
+            <li>Foam: Polymem;  Mepilex (4x4;heel; sacal; Ag)</li>
+            <li>Hydrocolloids:Medihoney Hydrocolloids; DuoDERM Extra Thin CGF; ComFeel</li>
+            <li>Abd pads Calcium Alginate: Medihoney Alginate</li>
+            <li>Hydrofiber: Aquacel; Aquacel Extra; Aquacel Ag (infected wound)</li>
+            <li>Hydrocolloid: Exuderm (4x4)</li>
+            <li>Very absorptive:Sofsorb; Drawtex; Mextra</li>
+            <li>Contact layer: (Non stick. Prevent dressing from sticking to the wound. </li>
+            <li>For painful wounds/ sensitive area/ underneath wound vac sponge.) Mepitel One; Cutimed Sorbact</li>
+            </ul>
+    </div>
+    
+    <!-- Question 16 -->
+    <div id="question16" class="question" style="display: none;">
+        <p>This is an infected shallow wet wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD who will consult PTWC, ID team for debridement, pulsed lavage, NPWT (negative pressure wound therapy, Compression therapy, VeraFlo system or Biological debriders( Maggots).
+            <li>4. Request wound culture order from MD.</li>
+            <li>5.Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+            </ul>
+        <p>Correct technique for swab culture:</p>
+        <ul><li>a. Swab only viable tissue. </li>
+            <li>b. Do not culture pus, slough or eschar.</li>
+            <li>c. Flush the wound with sterile saline.</li>
+            <li>d. Moisture the swab with NS to improve bacterial adherence.</li>
+            <li>e. Forcefully swab 1sq cm of viable tissue for 5 seconds to express fluid from the underlying wound. </li>
+            <li>f. Send lab. </li>
+            </ul>
+        <p>For Shallow Wet Wound dressing material to absorb drainage and need absorptive filter:</li>
+        <ul><li>Foam: Polymem;  Mepilex (4x4;heel; sacal; Ag)</li>
+            <li>Hydrocolloids:Medihoney Hydrocolloids; DuoDERM Extra Thin CGF; ComFeel</li>
+            <li>Abd pads Calcium Alginate: Medihoney Alginate</li>
+            <li>Hydrofiber: Aquacel; Aquacel Extra; Aquacel Ag (infected wound)</li>
+            <li>Hydrocolloid: Exuderm (4x4)</li>
+            <li>Very absorptive:Sofsorb; Drawtex; Mextra</li>
+            <li>Contact layer: (Non stick. Prevent dressing from sticking to the wound. </li>
+            <li>For painful wounds/ sensitive area/ underneath wound vac sponge.) Mepitel One; Cutimed Sorbact</li>
+            </ul>
+    </div>
+    
+    <!-- Question 17 -->
+    <div id="question17" class="question" style="display: none;">
+        <p>17. Is the sanguineous exudate increasing or persisting after days?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate" value="yes" onclick="showNextQuestion('question18')"> Yes</label><br>
+            <label><input type="radio" name="exudate" value="no" onclick="showNextQuestion('question15')"> No. It is decreasing amount and it only lasts the first a few days after the injury.</label>
+        </div>
+    </div>
+    
+    <!-- Question 18 -->
+    <div id="question18" class="question" style="display: none;">
+        <p>This is a delayed healing/ non-healing shallow wet wound.<br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD who will consult PTWC, ID team for debridement, pulsed lavage, NPWT (negative pressure wound therapy, Compression therapy, VeraFlo system or Biological debriders( Maggots).
+            <li>4. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+            <li>5.Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+            </ul>
+        <p>For Shallow Wet Wound dressing material to absorb drainage and need absorptive filter:</li>
+        <ul><li>Foam: Polymem;  Mepilex (4x4;heel; sacal; Ag)</li>
+            <li>Hydrocolloids:Medihoney Hydrocolloids; DuoDERM Extra Thin CGF; ComFeel</li>
+            <li>Abd pads Calcium Alginate: Medihoney Alginate</li>
+            <li>Hydrofiber: Aquacel; Aquacel Extra; Aquacel Ag (infected wound)</li>
+            <li>Hydrocolloid: Exuderm (4x4)</li>
+            <li>Very absorptive:Sofsorb; Drawtex; Mextra</li>
+            <li>Contact layer: (Non stick. Prevent dressing from sticking to the wound. </li>
+            <li>For painful wounds/ sensitive area/ underneath wound vac sponge.) Mepitel One; Cutimed Sorbact</li>
+            </ul>
+    </div>
+    
+    <!-- Question 19 -->
+    <div id="question19" class="question" style="display: none;">
+        <p>Is the sanguineous exudate increasing or persisting after days?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate" value="yes" onclick="showNextQuestion('question20')"> Yes</label><br>
+            <label><input type="radio" name="exudate" value="no" onclick="showNextQuestion('question9')"> No. It is decreasing amount and it only lasts the first a few days after the injury.</label>
+        </div>
+    </div>
+    
+     <!-- Question 20 -->
+    <div id="question20" class="question" style="display: none;">
+        <p>This is a delayed healing/ non-healing deep wet wound.<br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD who will consult PTWC, ID team for debridement, pulsed lavage, NPWT (negative pressure wound therapy, Compression therapy, VeraFlo system or Biological debriders( Maggots).
+            <li>4. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+            <li>5.Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+            </ul>
+        <p>For Deep Wet Wound dressing material to absorb drainage and need absorptive filter:</li>
+        <ul><li>Filler dressing option:</li>
+            <li>Hydrofiber: Aquacel rope; Alginate (flat or rope); Aquacel Ag (for infected wound); Plain packing strips (¼,½,1-inch); Iodoform packing strips  (¼,½,1-inch)</li>
+            <li>Rolled Gauze (Woven): Kerlix roll</li>
+            <li>HMesalt (for autolytic debridement)</li>
+            </ul>
+    </div>
+    
+    <!-- Question 21 -->
+    <div id="question21" class="question" style="display: none;">
+        <p>This is an infected deep dry wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD who will consult PTWC, ID team for debridement, pulsed lavage, NPWT (negative pressure wound therapy, Compression therapy, VeraFlo system or Biological debriders( Maggots).
+            <li>4. Request wound culture order from MD.</li>
+            <li>5.Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+            </ul>
+        <p>Correct technique for swab culture:</li>
+        <ul><li>a. Swab only viable tissue. </li>
+            <li>b. Do not culture pus, slough or eschar.</li>
+            <li>c. Flush the wound with sterile saline.</li>
+            <li>d. Moisture the swab with NS to improve bacterial adherence.</li>
+            <li>e. Forcefully swab 1sq cm of viable tissue for 5 seconds to express fluid from the underlying wound. </li>
+            <li>f. Send lab. </li>
+            </ul>
+        <p>For Deep Dry Wound dressing material to hydrate and maintain moisture.</li>
+         <ul><li>Filler dressing option: NS-moist gauze packing; Vashe-moist gauze packing</li>
+            <li>Abd pads Calcium Alginate: Medihoney Alginate</li>
+            <li>Cover dressing option: Gauze+transparent/ waterproof adhesive dressing: Tegaderm; Polyskin</li>
+            </ul>
+    </div>
+    
+     <!-- Question 22 -->
+    <div id="question22" class="question" style="display: none;">
+        <p>This is an infected deep wet wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD who will consult PTWC, ID team for debridement, pulsed lavage, NPWT (negative pressure wound therapy, Compression therapy, VeraFlo system or Biological debriders( Maggots).
+            <li>4. Request wound culture order from MD.</li>
+            <li>5.Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+            </ul>
+          <p>Correct technique for swab culture:</li>
+          <ul><li>a. Swab only viable tissue. </li>
+            <li>b. Do not culture pus, slough or eschar.</li>
+            <li>c. Flush the wound with sterile saline.</li>
+            <li>d. Moisture the swab with NS to improve bacterial adherence.</li>
+            <li>e. Forcefully swab 1sq cm of viable tissue for 5 seconds to express fluid from the underlying wound. </li>
+            <li>f. Send lab. </li>
+            </ul>
+        <p>For Deep Wet Wound dressing material to absorb drainage and need absorptive filter:</li>
+        <ul><li>Filler dressing option:</li>
+            <li>Hydrofiber: Aquacel rope; Alginate (flat or rope); Aquacel Ag (for infected wound); Plain packing strips (¼,½,1-inch); Iodoform packing strips  (¼,½,1-inch)</li>
+            <li>Rolled Gauze (Woven): Kerlix roll</li>
+            <li>Mesalt (for autolytic debridement)</li>
+            </ul>
+    </div>
+    
+    <!-- Question 23 -->
+    <div id="question23" class="question" style="display: none;">
+        <p>This is an infected shallow dry wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD who will consult PTWC, ID team for debridement, pulsed lavage, NPWT (negative pressure wound therapy, Compression therapy, VeraFlo system or Biological debriders( Maggots).
+            <li>4. Request wound culture order from MD.</li>
+            <li>5.Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+            </ul>
+        <p>Correct technique for swab culture:</li>
+        <ul><li>a. Swab only viable tissue. </li>
+            <li>b. Do not culture pus, slough or eschar.</li>
+            <li>c. Flush the wound with sterile saline.</li>
+            <li>d. Moisture the swab with NS to improve bacterial adherence.</li>
+            <li>e. Forcefully swab 1sq cm of viable tissue for 5 seconds to express fluid from the underlying wound. </li>
+            <li>f. Send lab. </li>
+            </ul>
+        <p>For Shallow Dry Wound dressing material to hydrate and maintain moisture.</li>
+        <ul><li>Hydrogels:Medihoney gel; Woun’dres Collagen; Silver gel (for infected wound); Plurogel; Kerralite cool border</li>
+            <li>Hydrocolloids:Medihoney Hydrocolloids; DuoDERM Extra Thin CGF; ComFeel</li>
+            <li>Non-adherent Impregnated:Curity Oil emulsion gauze; Vaseline gauze; Xeroform gauze; Cutimed Sorbact gel</li>
+            <li>Non-impregnated:Telfa; Mepore (tape border)</li>
+            <li>Secures dressings with Transparent adhesive dressing:Tegaderm; Polyskin</li>
+            <li>Adhesive tape: Medipore; MedFix; Silicon Tape</li>
+            <li>Foam:Mepilex</li>
+            </ul>
+    </div>
+    
+    <script>
+        function showNextQuestion(id) {
+            var questions = document.querySelectorAll('.question');
+            questions.forEach(function(question) {
+                question.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
